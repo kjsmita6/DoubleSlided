@@ -19,8 +19,8 @@ public class Coordinate {
 
 	@Override
 	public boolean equals(Object obj) {
-		if(obj instanceof Coordinate) {
-			Coordinate c = (Coordinate)obj;
+		if (obj instanceof Coordinate) {
+			Coordinate c = (Coordinate) obj;
 			return this.x == c.getX() && this.y == c.getY();
 		}
 		return false;

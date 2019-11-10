@@ -23,7 +23,7 @@ public class Piece {
 	}
 
 	public boolean flip() {
-		if(isAdjacentTo(new Piece(null, 0, Board.emptyTile))) {
+		if (isAdjacentTo(new Piece(null, 0, Board.emptyTile))) {
 			this.color = swapColor();
 			this.number = TILE_NUM_TOTAL - this.number;
 			this.coords = Board.emptyTile;
@@ -39,11 +39,10 @@ public class Piece {
 
 	public Button createButton() {
 		Button button = new Button(Integer.toString(this.number));
-		if(color == Color.BLACK) {
+		if (color == Color.BLACK) {
 			button.setFont(new Font(48));
 			button.setTextFill(javafx.scene.paint.Color.WHITE);
-		}
-		else {
+		} else {
 			button.setFont(new Font(48));
 		}
 		button.setBackground(new Background(new BackgroundFill(convertToSceneColor(), CornerRadii.EMPTY, Insets.EMPTY)));

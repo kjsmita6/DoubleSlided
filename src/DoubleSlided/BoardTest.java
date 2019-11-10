@@ -1,7 +1,6 @@
 package DoubleSlided;
 
 import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.util.Hashtable;
@@ -63,8 +62,8 @@ class BoardTest {
 
 		assertFalse(Board.checkWon());
 
-		for(int i = 0; i < Board.pieces.length; i++) {
-			for(int j = 0; j < Board.pieces.length; j++) {
+		for (int i = 0; i < Board.pieces.length; i++) {
+			for (int j = 0; j < Board.pieces.length; j++) {
 				Board.pieces[i][j] = winCond[i][j];
 			}
 		}

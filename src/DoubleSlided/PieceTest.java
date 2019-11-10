@@ -1,9 +1,9 @@
 package DoubleSlided;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 class PieceTest {
 
@@ -22,6 +22,11 @@ class PieceTest {
 		assertEquals(Color.GRAY, test.color);
 		assertEquals(4, test.number);
 		assertTrue(test.coords.equals(Board.emptyTile));
+		assertFalse(test.coords.equals(test));
+
+
+		Board.emptyTile = new Coordinate(2,2);
+		assertFalse(test.flip());
 	}
 
 	@Test

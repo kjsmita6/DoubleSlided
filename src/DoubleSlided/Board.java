@@ -29,9 +29,9 @@ public class Board {
 		pieces[2][1] = new Piece(Color.GRAY, 4, new Coordinate(2, 1));
 		pieces[2][2] = new Piece(Color.GRAY, 3, new Coordinate(2, 2));
 
-		for(int i = 0; i < 3; i++) {
-			for(int j = 0; j < 3; j++) {
-				if(pieces[i][j] != null) {
+		for (int i = 0; i < 3; i++) {
+			for (int j = 0; j < 3; j++) {
+				if (pieces[i][j] != null) {
 					drawPiece(pieces[i][j]);
 				}
 			}
@@ -39,13 +39,12 @@ public class Board {
 	}
 
 	public static void addNumber(int key) {
-		if(numbers.containsKey(key)) {
+		if (numbers.containsKey(key)) {
 			int val = numbers.get(key);
 //			numbers.remove(key);
 //			numbers.put(key, val + 1);
 			numbers.replace(key, val + 1);
-		}
-		else {
+		} else {
 			numbers.put(key, 1);
 		}
 	}
@@ -58,34 +57,28 @@ public class Board {
 	public static Coordinate getBoardCoords(double x, double y) {
 		int retX = -1;
 		int retY = -1;
-		if(0 <= x && x <= 154) {
+		if (0 <= x && x <= 154) {
 			retX = 0;
-		}
-		else if(154 < x && x <= 308) {
+		} else if (154 < x && x <= 308) {
 			retX = 1;
-		}
-		else if(309 < x && x <= 463) {
+		} else if (309 < x && x <= 463) {
 			retX = 2;
-		}
-		else {
+		} else {
 			return null;
 		}
 
-		if(0 <= y && y <= 138) {
+		if (0 <= y && y <= 138) {
 			retY = 0;
-		}
-		else if(139 < y && y <= 278) {
+		} else if (139 < y && y <= 278) {
 			retY = 1;
-		}
-		else if(279 < y && y <= 417) {
+		} else if (279 < y && y <= 417) {
 			retY = 2;
-		}
-		else {
+		} else {
 			return null;
 		}
 
 		Coordinate ret = new Coordinate(retX, retY);
-		if(ret.equals(emptyTile)) {
+		if (ret.equals(emptyTile)) {
 			return null;
 		}
 		return new Coordinate(retX, retY);
@@ -109,21 +102,20 @@ public class Board {
 		winCond[0][1] = new Piece(Color.BLACK, 4, null);
 		winCond[1][1] = null;
 
-		for(int i = 0; i < 3; i++) {
-			for(int j = 0; j < 3; j++) {
+		for (int i = 0; i < 3; i++) {
+			for (int j = 0; j < 3; j++) {
 				Piece check = winCond[i][j];
 				Piece actual = pieces[i][j];
-				if(check != null && actual != null) {
+				if (check != null && actual != null) {
 					if (check.number != actual.number || check.color != actual.color) {
 						return false;
 					}
 				}
 			}
 		}
-		if(Board.emptyTile.equals(new Coordinate(1, 1))) {
+		if (Board.emptyTile.equals(new Coordinate(1, 1))) {
 			return true;
-		}
-		else {
+		} else {
 			return false;
 		}
 	}
